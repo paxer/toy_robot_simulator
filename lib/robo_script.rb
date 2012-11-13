@@ -22,15 +22,15 @@ class RoboScript
 
           x = arguments[0].to_i
           y = arguments[1].to_i
-          facing = Robot::FACING_POSITIONS.key(arguments[2])
+          facing = Controller::FACING_POSITIONS.key(arguments[2])
 
           @robot = Robot.new :x => x, :y => y, :facing => facing
         when 'MOVE'
-          @robot.command :move
+          @robot.controller.move
         when 'LEFT'
-          @robot.command :left
+          @robot.controller.left
         when 'RIGHT'
-          @robot.command :right
+          @robot.controller.right
         when 'REPORT'
           result += "Output: #{@robot.report}\n"
         else
